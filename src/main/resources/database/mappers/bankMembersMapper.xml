@@ -7,15 +7,15 @@
 <mapper namespace="com.iu.start.bankmembers.BankMembersDAO">
 
 	<insert id="setJoin" parameterType="com.iu.start.bankmembers.BankMembersDTO">
-		INSERT INTO BANKMEMBERS VALUES (#{userName},#{password},#{name},#{email},#{phone})
+		INSERT INTO BANKMEMBERS VALUES(#{userName},#{password},#{name},#{email},#{phone})
 	</insert>
 	
 	<select id="getSearchByID" parameterType="java.lang.String" resultType="com.iu.start.bankmembers.BankMembersDTO">
-		SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE '%'||string||'%' ORDER BY USERNAME ASC
+		SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE '%'||#{search}||'%' ORDER BY USERNAME ASC
 	</select>
 	
 	<select id="getLogin" parameterType="com.iu.start.bankmembers.BankMembersDTO" resultType="com.iu.start.bankmembers.BankMembersDTO">
-		SELECT USERNAME, NAME FROM FROM BANKMEMBERS WHERE USERNAME=#{userName} AND PASSWROD=#{password}
+		SELECT USERNAME, NAME FROM BANKMEMBERS WHERE USERNAME=#{userName} AND PASSWORD=#{password}
 	</select>
 
 </mapper>
